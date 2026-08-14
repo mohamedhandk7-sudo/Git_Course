@@ -1,0 +1,46 @@
+:root{
+  --bg1:#0f1724;
+  --bg2:#0b1220;
+  --card:#0f172a;
+  --accent:#6ee7b7;
+  --accent-2:#60a5fa;
+  --muted:#9aa4b2;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 10% 10%, #071029 0%, var(--bg1) 40%, var(--bg2) 100%);color:#e6eef6}
+.app{width:100%;max-width:380px;padding:28px}
+.calculator{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+.screen{padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.history{color:var(--muted);font-size:0.85rem;height:18px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:2px 6px}
+.display{width:100%;min-height:56px;background:transparent;border:0;color:#fff;font-size:1.9rem;text-align:right;padding:8px 10px;outline:none;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:4px;transition:transform .18s cubic-bezier(.2,.9,.3,1),opacity .18s}
+
+/* Fraction styling */
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 6px;transform-origin:center;transition:transform .18s ease}
+.frac .num{font-size:0.9em;padding:0 6px}
+.frac .bar{height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));display:block;width:100%;margin:2px 0}
+.frac .den{font-size:0.9em;padding:0 6px}
+
+/* root and superscript */
+.sup{font-size:0.65em;vertical-align:super;margin-left:4px;color:var(--accent-2)}
+.root-symbol{font-weight:700;color:var(--accent)}
+
+/* Button animations */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);opacity:0;transition:opacity .18s}
+.btn:active::after{opacity:1}
+
+/* Grid tweaks */
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:stretch}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.btn{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.05));border:0;padding:16px;border-radius:10px;color:#e6eef6;font-size:1.05rem;cursor:pointer;box-shadow:0 6px 12px rgba(2,6,23,0.5);transition:transform .08s ease, box-shadow .12s ease}
+.btn:active{transform:translateY(1px)}
+.btn:hover{box-shadow:0 10px 20px rgba(2,6,23,0.6)}
+.btn.op{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;font-weight:600}
+.btn.equal{background:linear-gradient(180deg,#fee2b3,#fca311);color:#2b1f00;font-weight:700;transform:translateZ(0)}
+.func{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+.zero{grid-column:span 2;text-align:left;padding-left:22px}
+.credit{margin-top:10px;text-align:center;color:var(--muted);font-size:0.85rem}
+
+@media (max-width:420px){.app{padding:18px}.display{font-size:1.4rem}.btn{padding:14px}}
+
